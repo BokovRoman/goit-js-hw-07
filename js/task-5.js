@@ -1,6 +1,14 @@
-// Напиши скрипт который, при наборе текста в инпуте input#name-input (событие input), 
-// подставляет его текущее значение в span#name - output.Если инпут пустой, 
-// в спане должна отображаться строка 'незнакомец'.
+const inputNameRef = document.querySelector('#name-input');
+// console.log(inputNameRef);
+const textNameRef = document.querySelector('#name-output');
 
-// <input type="text" placeholder="Ваше имя?" id="name-input" />
-// <h1>Привет, <span id="name-output">незнакомец</span>!</h1>
+inputNameRef.addEventListener('input', onInputChange);
+
+function onInputChange(event) {
+     textNameRef.textContent = 'незнакомец';
+
+    // console.log(event.currentTarget.value);
+    if (event.currentTarget.value !=="") {
+         textNameRef.textContent = event.currentTarget.value;
+    }
+};
